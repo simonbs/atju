@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  Atju
+
+  Created by Simon Støvring on 17/06/2016.
+  Copyright © 2016 SimonBS. All rights reserved.
+*/
+
+"ATJU" = "Atju";
+"RETRY" = "Prøv igen";
+"FAILED_LOADING_READINGS" = "Pollenmålingerne kunne ikke hentes.";
+"COPENHAGEN" = "København";
+"VIBORG" = "Viborg";
+"RELATIVE_DATE_YESTERDAY" = "I går";
+"RELATIVE_DATE_TODAY" = "I dag";
+"RELATIVE_DATE_TOMORROW" = "I morgen";
