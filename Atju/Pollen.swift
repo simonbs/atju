@@ -17,7 +17,7 @@ struct Pollen {
         
         init?(json: SwiftyJSON.JSON) {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
             guard let date = json["date"].string => dateFormatter.date else { return nil }
             self.date = date
             self.prognose = json["prognose"].string
