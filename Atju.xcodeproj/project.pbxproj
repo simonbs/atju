@@ -15,6 +15,7 @@
 		72995C3A1D149DC4005382E9 /* ReadingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72995C391D149DC4005382E9 /* ReadingCollectionViewCell.swift */; };
 		72995C3C1D149DEF005382E9 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72995C3B1D149DEF005382E9 /* CollectionViewCell.swift */; };
 		72A657491D16C4DF00383465 /* ReadingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A657481D16C4DF00383465 /* ReadingsViewModel.swift */; };
+		72BEB67A1D228A1900C8083D /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BEB6791D228A1900C8083D /* SettingsStore.swift */; };
 		72C6E6161D1476D700FEDF2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6E6151D1476D700FEDF2C /* AppDelegate.swift */; };
 		72C6E6181D1476D700FEDF2C /* ReadingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6E6171D1476D700FEDF2C /* ReadingsViewController.swift */; };
 		72C6E61D1D1476D700FEDF2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72C6E61C1D1476D700FEDF2C /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		72995C391D149DC4005382E9 /* ReadingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingCollectionViewCell.swift; sourceTree = "<group>"; };
 		72995C3B1D149DEF005382E9 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		72A657481D16C4DF00383465 /* ReadingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingsViewModel.swift; sourceTree = "<group>"; };
+		72BEB6791D228A1900C8083D /* SettingsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
 		72C6E6121D1476D700FEDF2C /* Atju.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Atju.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72C6E6151D1476D700FEDF2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72C6E6171D1476D700FEDF2C /* ReadingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingsViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			children = (
 				72E916AA1D148938002E3043 /* AtjuClient.swift */,
 				72E916AC1D148988002E3043 /* Pollen.swift */,
+				72BEB6791D228A1900C8083D /* SettingsStore.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				72A657491D16C4DF00383465 /* ReadingsViewModel.swift in Sources */,
 				728F87981D15BC5E00D1C888 /* RelativeDateFormatter.swift in Sources */,
 				728F87941D15B4BB00D1C888 /* UIColor.swift in Sources */,
+				72BEB67A1D228A1900C8083D /* SettingsStore.swift in Sources */,
 				72C6E6181D1476D700FEDF2C /* ReadingsViewController.swift in Sources */,
 				72995C3C1D149DEF005382E9 /* CollectionViewCell.swift in Sources */,
 				72E916AF1D14913E002E3043 /* Operators.swift in Sources */,

@@ -8,32 +8,22 @@
 
 import Foundation
 
+extension Pollen.City {
+    var title: String {
+        switch self {
+        case .copenhagen: return localize("COPENHAGEN")
+        case .viborg: return localize("VIBORG")
+        }
+    }
+}
+
 extension ReadingsView {
     class ViewModel {
-        enum CitySegment: Int {
-            case copenhagen = 0
-            case viborg = 1
-            
-            var title: String {
-                switch self {
-                case .copenhagen: return localize("COPENHAGEN")
-                case .viborg: return localize("VIBORG")
-                }
-            }
-            
-            var city: Pollen.City {
-                switch self {
-                case .copenhagen: return .copenhagen
-                case .viborg: return .viborg
-                }
-            }
-        }
-        
         private let client = AtjuClient()
         private(set) var cellViewModels: [Pollen.City: [ReadingCollectionViewCell.ViewModel]] = [:]
-        var selectedCitySegment: CitySegment = .copenhagen
+        var selectedCity: Pollen.City = .copenhagen
         var selectedCellViewModels: [ReadingCollectionViewCell.ViewModel] {
-            return cellViewModels[selectedCitySegment.city] ?? []
+            return cellViewModels[selectedCity] ?? []
         }
         
         func getPollen(update: (() -> Void), failure: ((AtjuClient.Error) -> Void)) {

@@ -26,9 +26,17 @@ struct Pollen {
         }
     }
     
-    enum City: String {
-        case copenhagen = "København"
-        case viborg = "Viborg"
+    enum City: Int {
+        case copenhagen = 0
+        case viborg = 1
+        
+        init?(fromBackend value: String) {
+            switch value {
+            case "København": self = .copenhagen
+            case "Viborg": self = .viborg
+            default: return nil
+            }
+        }
     }
     
     struct CityReadings {

@@ -15,10 +15,10 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
     override init() {
         super.init()
         let segmentedControl = UISegmentedControl(items: [
-            ReadingsView.ViewModel.CitySegment.copenhagen.title,
-            ReadingsView.ViewModel.CitySegment.viborg.title
+            Pollen.City.copenhagen.title,
+            Pollen.City.viborg.title
         ])
-        segmentedControl.selectedSegmentIndex = viewModel.selectedCitySegment.rawValue
+        segmentedControl.selectedSegmentIndex = viewModel.selectedCity.rawValue
         segmentedControl.addTarget(self, action: #selector(didSelectSegment), for: .valueChanged)
         navigationItem.titleView = segmentedControl
     }
@@ -69,7 +69,7 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cellViewModel = viewModel.cellViewModels[viewModel.selectedCitySegment.city]?[indexPath.row]
+        let cellViewModel = viewModel.cellViewModels[viewModel.selectedCity]?[indexPath.row]
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReadingsViewController.cellIdentifier, for: indexPath) as? ReadingCollectionViewCell else {
             fatalError("Unable to get ReadingCollectionViewCell")
         }
@@ -82,8 +82,8 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
     }
     
     dynamic private func didSelectSegment(segmentedControl: UISegmentedControl) {
-        guard let selectedSegment = ReadingsView.ViewModel.CitySegment(rawValue: segmentedControl.selectedSegmentIndex) else { return }
-        viewModel.selectedCitySegment = selectedSegment
+        guard let selectedCity = Pollen.City(rawValue: segmentedControl.selectedSegmentIndex) else { return }
+        viewModel.selectedCity = selectedCity
         contentView.collectionView.reloadData()
     }
 }
