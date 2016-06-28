@@ -13,27 +13,41 @@ struct RelativeDateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
         dateFormatter.locale = Locale(localeIdentifier: "da_DK")
+        dateFormatter.timeZone = TimeZone(name: "CET")
         return dateFormatter
     }()
     
     private static let fullDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd. LLL"
+        dateFormatter.dateFormat = "dd. LLLL"
         dateFormatter.locale = Locale(localeIdentifier: "da_DK")
+        dateFormatter.timeZone = TimeZone(name: "CET")
+        return dateFormatter
+    }()
+    
+    private static let timeFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = localize("TIME_FORMAT")
+        dateFormatter.locale = Locale(localeIdentifier: "da_DK")
+        dateFormatter.timeZone = TimeZone(name: "CET")
         return dateFormatter
     }()
     
     static func string(from date: Date) -> String  {
+        let dateStr: String
         if date.isToday() {
-            return localize("RELATIVE_DATE_TODAY")
+            dateStr = localize("RELATIVE_DATE_TODAY")
         } else if date.isYesterday() {
-            return localize("RELATIVE_DATE_YESTERDAY")
+            dateStr = localize("RELATIVE_DATE_YESTERDAY")
         } else if date.isTomorrow() {
-            return localize("RELATIVE_DATE_TOMORROW")
+            dateStr = localize("RELATIVE_DATE_TOMORROW")
         } else if date.isWithinAWeek() {
-            return weekdayFormatter.string(from: date).capitalized
+            dateStr = weekdayFormatter.string(from: date).capitalized
+        } else {
+            dateStr = fullDateFormatter.string(from: date)
         }
         
-        return fullDateFormatter.string(from: date)
+        let timeStr = timeFormatter.string(from: date)
+        return "\(dateStr) \(timeStr)"
     }
 }
