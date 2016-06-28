@@ -111,7 +111,7 @@ class ReadingsView: View {
         if #available(iOS 10, *) {
             collectionView.refreshControl = refreshControl
         } else {
-            collectionView.addSubview(refreshControl)
+            collectionView.insertSubview(refreshControl, at: 0)
         }
     }
     
