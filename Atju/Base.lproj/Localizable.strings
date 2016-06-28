@@ -14,3 +14,4 @@
 "RELATIVE_DATE_YESTERDAY" = "I går";
 "RELATIVE_DATE_TODAY" = "I dag";
 "RELATIVE_DATE_TOMORROW" = "I morgen";
+"TIME_FORMAT" = "'kl.' HH:mm";

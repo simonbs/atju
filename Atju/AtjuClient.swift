@@ -20,7 +20,7 @@ class AtjuClient {
     private let session: URLSession = .shared()
     
     func getPollen(success: ((Pollen) -> Void), failure: ((Error) -> Void)) {
-        guard let url = URL(string: "http://atju.4su.re/dmi/pollen") else {
+        guard let url = URL(string: "http://7bf8aa68.ngrok.io/dmi/pollen") else {
             failure(.unableToCreateUrl)
             return
         }

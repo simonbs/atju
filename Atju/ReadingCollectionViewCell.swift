@@ -55,22 +55,28 @@ class ReadingCollectionViewCell: CollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 22, weight: UIFontWeightSemibold)
         label.textColor = UIColor.white().withAlphaComponent(0.93)
+        label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
         return label
     }()
     
     let latestValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 42, weight: UIFontWeightBlack)
+        label.font = UIFont.systemFont(ofSize: 42, weight: UIFontWeightBold)
         label.textColor = UIColor.white().withAlphaComponent(0.93)
+        label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
         return label
     }()
     
     let latestDateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightRegular)
+        label.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
         label.textColor = UIColor.white().withAlphaComponent(0.93)
+        label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
         return label
     }()
     
@@ -79,6 +85,9 @@ class ReadingCollectionViewCell: CollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
         label.textColor = UIColor.white().withAlphaComponent(0.85)
+        label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
+        label.numberOfLines = 0
         return label
     }()
     
