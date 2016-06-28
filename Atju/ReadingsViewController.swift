@@ -14,7 +14,6 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
     
     override init() {
         super.init()
-        
         let segmentedControl = UISegmentedControl(items: [
             ReadingsView.ViewModel.CitySegment.copenhagen.title,
             ReadingsView.ViewModel.CitySegment.viborg.title
@@ -27,9 +26,10 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         contentView.topLayoutGuide = topLayoutGuide
-        contentView.errorView.retryButton.addTarget(self, action: #selector(reload), for: .touchUpInside)
+        contentView.errorView.retryButton.addTarget(self, action: #selector(performInitialLoad), for: .touchUpInside)
         contentView.collectionView.dataSource = self
         contentView.collectionView.register(ReadingCollectionViewCell.self, forCellWithReuseIdentifier: ReadingsViewController.cellIdentifier)
+        contentView.refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         reload()
     }
     
@@ -37,12 +37,25 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
         return .lightContent
     }
     
-    dynamic private func reload() {
+    dynamic private func refresh() {
+        contentView.refreshControl.beginRefreshing()
+        reload()
+    }
+    
+    dynamic private func performInitialLoad() {
         contentView.showLoading()
+        reload()
+    }
+    
+    private func reload() {
         viewModel.getPollen(update: { [weak self] in
+            self?.contentView.refreshControl.endRefreshing()
+            self?.contentView.refreshControl.isEnabled = true
             self?.contentView.collectionView.reloadData()
             self?.contentView.showContent()
         }) { [weak self] _ in
+            self?.contentView.refreshControl.endRefreshing()
+            self?.contentView.refreshControl.isEnabled = false
             self?.contentView.showError()
         }
     }

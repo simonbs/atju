@@ -72,6 +72,13 @@ class ReadingsView: View {
         return collectionView
     }()
     
+    let refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = .white()
+        refreshControl.isEnabled = false
+        return refreshControl
+    }()
+    
     let loadingIndicatorView: UIActivityIndicatorView = {
         let loadingIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         loadingIndicatorView.translatesAutoresizingMaskIntoConstraints = false
@@ -100,6 +107,11 @@ class ReadingsView: View {
         super.layoutSubviews()
         let length = bounds.width / 2
         collectionView.layout.itemSize = CGSize(width: length, height: length)
+        if #available(iOS 10, *) {
+            collectionView.refreshControl = refreshControl
+        } else {
+            collectionView.addSubview(refreshControl)
+        }
     }
     
     override func defineLayout() {
