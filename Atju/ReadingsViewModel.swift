@@ -21,7 +21,15 @@ extension ReadingsView {
     class ViewModel {
         private let client = AtjuClient()
         private(set) var cellViewModels: [Pollen.City: [ReadingCollectionViewCell.ViewModel]] = [:]
-        var selectedCity: Pollen.City = .copenhagen
+        var selectedCity: Pollen.City {
+            get {
+                return SettingsStore().selectedCity
+            }
+            set {
+                var store = SettingsStore()
+                store.selectedCity = newValue
+            }
+        }
         var selectedCellViewModels: [ReadingCollectionViewCell.ViewModel] {
             return cellViewModels[selectedCity] ?? []
         }
