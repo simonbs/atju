@@ -69,6 +69,7 @@ class ReadingsView: View {
         collectionView.layout.minimumLineSpacing = 0
         collectionView.layout.minimumInteritemSpacing = 0
         collectionView.alpha = 0
+        collectionView.alwaysBounceVertical = true
         return collectionView
     }()
     
