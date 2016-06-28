@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AirshipKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,7 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.tintColor = .black()
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+        
+        UAirship.takeOff()
+        UAirship.push().userPushNotificationsEnabled = true
         return true
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        UIApplication.shared().applicationIconBadgeNumber = 0
     }
 }
 
