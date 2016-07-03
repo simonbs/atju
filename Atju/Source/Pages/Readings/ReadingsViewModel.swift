@@ -19,7 +19,7 @@ extension Pollen.City {
 
 extension ReadingsView {
     class ViewModel {
-        private let client = AtjuClient()
+        private let client = AtjuClient(baseURL: Config.shared.url)
         private(set) var cellViewModels: [Pollen.City: [ReadingCollectionViewCell.ViewModel]] = [:]
         var selectedCity: Pollen.City {
             get {

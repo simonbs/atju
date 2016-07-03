@@ -5,12 +5,12 @@
 	<key>detectProvisioningMode</key>
 	<true/>
 	<key>developmentAppKey</key>
-	<string>yp3wLAbNTmGThnfuYcbB0A</string>
+	<string></string>
 	<key>developmentAppSecret</key>
-	<string>AVdGd5V_TAm-w4o2cDBvhA</string>
+	<string></string>
 	<key>productionAppKey</key>
-	<string>4WT_FwGSTme87JV01O-q2Q</string>
+	<string></string>
 	<key>productionAppSecret</key>
-	<string>mmDWcSlORDCXgcr1VCVjEw</string>
+	<string></string>
 </dict>
 </plist>

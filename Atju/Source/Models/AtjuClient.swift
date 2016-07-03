@@ -18,9 +18,17 @@ class AtjuClient {
     }
     
     private let session: URLSession = .shared()
+    private let baseURL: URL
+    
+    init(baseURL: URL) {
+        self.baseURL = baseURL
+    }
     
     func getPollen(success: ((Pollen) -> Void), failure: ((Error) -> Void)) {
-        guard let url = URL(string: "http://atju.4su.re/dmi/pollen") else {
+        let url: URL
+        do {
+            url = try baseURL.appendingPathComponent("/dmi/pollen")
+        } catch {
             failure(.unableToCreateUrl)
             return
         }

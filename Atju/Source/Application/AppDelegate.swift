@@ -23,14 +23,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.tintColor = .black()
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
-        
-        UAirship.takeOff()
-        UAirship.push().userPushNotificationsEnabled = true
+        configureUrbanAirship()
         return true
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         UIApplication.shared().applicationIconBadgeNumber = 0
+    }
+    
+    private func configureUrbanAirship() {
+        if let _ = Bundle.main().pathForResource("AirshipConfig", ofType: "plist") {
+            UAirship.takeOff()
+            UAirship.push().userPushNotificationsEnabled = true
+        }
     }
 }
 
