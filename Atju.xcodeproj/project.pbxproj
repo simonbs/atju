@@ -18,7 +18,6 @@
 		72944AFC1D299F35008CF911 /* ReadingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72944AE61D299F35008CF911 /* ReadingsView.swift */; };
 		72944AFD1D299F35008CF911 /* ReadingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72944AE71D299F35008CF911 /* ReadingsViewController.swift */; };
 		72944AFE1D299F35008CF911 /* ReadingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72944AE81D299F35008CF911 /* ReadingsViewModel.swift */; };
-		72944AFF1D299F35008CF911 /* AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72944AEA1D299F35008CF911 /* AutoLayout.swift */; };
 		72944B001D299F35008CF911 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72944AEB1D299F35008CF911 /* Date.swift */; };
 		72944B011D299F35008CF911 /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72944AEC1D299F35008CF911 /* Localize.swift */; };
 		72944B021D299F35008CF911 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72944AED1D299F35008CF911 /* Operators.swift */; };
@@ -31,6 +30,8 @@
 		72944B0F1D29A0FC008CF911 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72944B0B1D29A0FC008CF911 /* AirshipConfig.plist */; };
 		72944B111D29A0FC008CF911 /* AtjuConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72944B0D1D29A0FC008CF911 /* AtjuConfig.plist */; };
 		72944B131D29A1DB008CF911 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72944B121D29A1DB008CF911 /* Config.swift */; };
+		72A0446F1D2A4CA50091F935 /* PrognoseReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A0446E1D2A4CA50091F935 /* PrognoseReusableView.swift */; };
+		72A044711D2A4EA20091F935 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A044701D2A4EA20091F935 /* CollectionReusableView.swift */; };
 		72BE62931D2A42A900AEBE0D /* UAirship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BE62921D2A42A900AEBE0D /* UAirship.swift */; };
 		72C2B0F01D22949F0061164D /* copy_header_imports.sh in Resources */ = {isa = PBXBuildFile; fileRef = 72C2B0EB1D22949E0061164D /* copy_header_imports.sh */; };
 		72C2B0F41D2294CC0061164D /* AirshipKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C2B0F31D22949F0061164D /* AirshipKit.framework */; };
@@ -85,7 +86,6 @@
 		72944AE61D299F35008CF911 /* ReadingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingsView.swift; sourceTree = "<group>"; };
 		72944AE71D299F35008CF911 /* ReadingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingsViewController.swift; sourceTree = "<group>"; };
 		72944AE81D299F35008CF911 /* ReadingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingsViewModel.swift; sourceTree = "<group>"; };
-		72944AEA1D299F35008CF911 /* AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayout.swift; sourceTree = "<group>"; };
 		72944AEB1D299F35008CF911 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		72944AEC1D299F35008CF911 /* Localize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localize.swift; sourceTree = "<group>"; };
 		72944AED1D299F35008CF911 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
@@ -98,6 +98,8 @@
 		72944B0B1D29A0FC008CF911 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		72944B0D1D29A0FC008CF911 /* AtjuConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AtjuConfig.plist; sourceTree = "<group>"; };
 		72944B121D29A1DB008CF911 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		72A0446E1D2A4CA50091F935 /* PrognoseReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrognoseReusableView.swift; sourceTree = "<group>"; };
+		72A044701D2A4EA20091F935 /* CollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
 		72BE62921D2A42A900AEBE0D /* UAirship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UAirship.swift; sourceTree = "<group>"; };
 		72C2B0E81D22949E0061164D /* AirshipKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = AirshipKit.xcodeproj; sourceTree = "<group>"; };
 		72C2B0EB1D22949E0061164D /* copy_header_imports.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = copy_header_imports.sh; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				72944AE51D299F35008CF911 /* ReadingCollectionViewCell.swift */,
+				72A0446E1D2A4CA50091F935 /* PrognoseReusableView.swift */,
 				72944AE61D299F35008CF911 /* ReadingsView.swift */,
 				72944AE71D299F35008CF911 /* ReadingsViewController.swift */,
 				72944AE81D299F35008CF911 /* ReadingsViewModel.swift */,
@@ -189,7 +192,6 @@
 		72944AE91D299F35008CF911 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				72944AEA1D299F35008CF911 /* AutoLayout.swift */,
 				72944AEB1D299F35008CF911 /* Date.swift */,
 				72944AEC1D299F35008CF911 /* Localize.swift */,
 				72944AED1D299F35008CF911 /* Operators.swift */,
@@ -205,6 +207,7 @@
 			children = (
 				72944AF11D299F35008CF911 /* CollectionView.swift */,
 				72944AF21D299F35008CF911 /* CollectionViewCell.swift */,
+				72A044701D2A4EA20091F935 /* CollectionReusableView.swift */,
 				72944AF31D299F35008CF911 /* ErrorView.swift */,
 				72944AF41D299F35008CF911 /* View.swift */,
 			);
@@ -425,15 +428,16 @@
 				72944AF81D299F35008CF911 /* AtjuClient.swift in Sources */,
 				72944AF61D299F35008CF911 /* NavigationController.swift in Sources */,
 				72944B041D299F35008CF911 /* UIColor.swift in Sources */,
+				72A044711D2A4EA20091F935 /* CollectionReusableView.swift in Sources */,
 				72944B011D299F35008CF911 /* Localize.swift in Sources */,
 				72944AFB1D299F35008CF911 /* ReadingCollectionViewCell.swift in Sources */,
 				72944B031D299F35008CF911 /* RelativeDateFormatter.swift in Sources */,
 				72944B051D299F35008CF911 /* CollectionView.swift in Sources */,
 				72944B081D299F35008CF911 /* View.swift in Sources */,
+				72A0446F1D2A4CA50091F935 /* PrognoseReusableView.swift in Sources */,
 				72944AFC1D299F35008CF911 /* ReadingsView.swift in Sources */,
 				72944B001D299F35008CF911 /* Date.swift in Sources */,
 				72944B021D299F35008CF911 /* Operators.swift in Sources */,
-				72944AFF1D299F35008CF911 /* AutoLayout.swift in Sources */,
 				72944B131D29A1DB008CF911 /* Config.swift in Sources */,
 				72944AFA1D299F35008CF911 /* SettingsStore.swift in Sources */,
 				72944AF91D299F35008CF911 /* Pollen.swift in Sources */,

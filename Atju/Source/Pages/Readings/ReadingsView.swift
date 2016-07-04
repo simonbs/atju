@@ -58,6 +58,13 @@ class ReadingsView: View {
         didSet { setNeedsUpdateConstraints() }
     }
     
+    let sizingFooterView: PrognoseReusableView = {
+        let footerView = PrognoseReusableView()
+        footerView.translatesAutoresizingMaskIntoConstraints = false
+        footerView.isHidden = true
+        return footerView
+    }()
+    
     private var collectionViewTopConstraint: NSLayoutConstraint?
     
     let collectionView: CollectionView<UICollectionViewFlowLayout> = {
@@ -65,11 +72,11 @@ class ReadingsView: View {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.backgroundColor = UIColor(hex: 0x232323)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.alpha = 0
+        collectionView.alwaysBounceVertical = true
         collectionView.layout.scrollDirection = .vertical
         collectionView.layout.minimumLineSpacing = 0
         collectionView.layout.minimumInteritemSpacing = 0
-        collectionView.alpha = 0
-        collectionView.alwaysBounceVertical = true
         return collectionView
     }()
     
@@ -118,12 +125,19 @@ class ReadingsView: View {
     override func defineLayout() {
         super.defineLayout()
         
+        addSubview(sizingFooterView)
+        addConstraint(sizingFooterView.leadingAnchor.constraint(equalTo: leadingAnchor))
+        addConstraint(sizingFooterView.trailingAnchor.constraint(equalTo: trailingAnchor))
+        addConstraint(sizingFooterView.topAnchor.constraint(equalTo: topAnchor))
+        
         addConstraint(loadingIndicatorView.centerXAnchor.constraint(equalTo: centerXAnchor))
         addConstraint(loadingIndicatorView.centerYAnchor.constraint(equalTo: centerYAnchor))
         
+        let collectionViewTopConstraint = collectionView.topAnchor.constraint(equalTo: topAnchor)
+        self.collectionViewTopConstraint = collectionViewTopConstraint
+        addConstraint(collectionViewTopConstraint)
         addConstraint(collectionView.leadingAnchor.constraint(equalTo: leadingAnchor))
         addConstraint(collectionView.trailingAnchor.constraint(equalTo: trailingAnchor))
-        collectionViewTopConstraint = shp_addConstraint(collectionView.topAnchor.constraint(equalTo: topAnchor))
         addConstraint(collectionView.bottomAnchor.constraint(equalTo: bottomAnchor))
         
         addConstraint(errorView.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor))
@@ -135,8 +149,10 @@ class ReadingsView: View {
     override func updateConstraints() {
         super.updateConstraints()
         if let topLayoutGuide = topLayoutGuide {
-            collectionViewTopConstraint => removeConstraint
-            collectionViewTopConstraint = shp_addConstraint(collectionView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor))
+            self.collectionViewTopConstraint => removeConstraint
+            let collectionViewTopConstraint = collectionView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor)
+            self.collectionViewTopConstraint = collectionViewTopConstraint
+            addConstraint(collectionViewTopConstraint)
         }
     }
     

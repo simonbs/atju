@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension ReadingCollectionViewCell {
-    class ViewModel {
+    struct ViewModel {
         struct Reading {
             let value: String
             let date: Date
@@ -104,7 +104,6 @@ class ReadingCollectionViewCell: CollectionViewCell {
         containerView.addSubview(latestDateLabel)
         containerView.addSubview(previousLabel)
         contentView.addSubview(containerView)
-        contentView.backgroundColor = .red()
     }
     
     override func defineLayout() {

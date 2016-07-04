@@ -33,9 +33,12 @@ extension ReadingsView {
                 UAirship.push().updateRegistration()
             }
         }
-        var selectedCellViewModels: [ReadingCollectionViewCell.ViewModel] {
+        
+        var cellViewModelsForSelectedCity: [ReadingCollectionViewCell.ViewModel] {
             return cellViewModels[selectedCity] ?? []
         }
+        
+        var prognoseViewModel: PrognoseReusableView.ViewModel?
         
         func getPollen(update: (() -> Void), failure: ((AtjuClient.Error) -> Void)) {
             client.getPollen(success: { [weak self] pollen in
@@ -48,6 +51,13 @@ extension ReadingsView {
                     }
                     
                     self?.cellViewModels = cellViewModels
+                    
+                    if let prognoseText = pollen.latest.prognose {
+                        self?.prognoseViewModel = PrognoseReusableView.ViewModel(text: prognoseText)
+                    } else {
+                        self?.prognoseViewModel = nil
+                    }
+                    
                     DispatchQueue.main.async {
                         update()
                     }
