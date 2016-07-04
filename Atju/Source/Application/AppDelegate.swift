@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func configureUrbanAirship() {
-        if let _ = Bundle.main().pathForResource("AirshipConfig", ofType: "plist") {
+        if UAirship.sbs_isConfigAvailable {
             UAirship.takeOff()
             UAirship.push().userPushNotificationsEnabled = true
         }

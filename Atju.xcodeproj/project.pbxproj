@@ -31,6 +31,7 @@
 		72944B0F1D29A0FC008CF911 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72944B0B1D29A0FC008CF911 /* AirshipConfig.plist */; };
 		72944B111D29A0FC008CF911 /* AtjuConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72944B0D1D29A0FC008CF911 /* AtjuConfig.plist */; };
 		72944B131D29A1DB008CF911 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72944B121D29A1DB008CF911 /* Config.swift */; };
+		72BE62931D2A42A900AEBE0D /* UAirship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BE62921D2A42A900AEBE0D /* UAirship.swift */; };
 		72C2B0F01D22949F0061164D /* copy_header_imports.sh in Resources */ = {isa = PBXBuildFile; fileRef = 72C2B0EB1D22949E0061164D /* copy_header_imports.sh */; };
 		72C2B0F41D2294CC0061164D /* AirshipKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C2B0F31D22949F0061164D /* AirshipKit.framework */; };
 		72C2B0F51D2294CC0061164D /* AirshipKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 72C2B0F31D22949F0061164D /* AirshipKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -97,6 +98,7 @@
 		72944B0B1D29A0FC008CF911 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		72944B0D1D29A0FC008CF911 /* AtjuConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AtjuConfig.plist; sourceTree = "<group>"; };
 		72944B121D29A1DB008CF911 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		72BE62921D2A42A900AEBE0D /* UAirship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UAirship.swift; sourceTree = "<group>"; };
 		72C2B0E81D22949E0061164D /* AirshipKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = AirshipKit.xcodeproj; sourceTree = "<group>"; };
 		72C2B0EB1D22949E0061164D /* copy_header_imports.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = copy_header_imports.sh; sourceTree = "<group>"; };
 		72C2B0FB1D2295ED0061164D /* Atju.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Atju.entitlements; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				72944AED1D299F35008CF911 /* Operators.swift */,
 				72944AEE1D299F35008CF911 /* RelativeDateFormatter.swift */,
 				72944AEF1D299F35008CF911 /* UIColor.swift */,
+				72BE62921D2A42A900AEBE0D /* UAirship.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72BE62931D2A42A900AEBE0D /* UAirship.swift in Sources */,
 				72944AF71D299F35008CF911 /* ViewController.swift in Sources */,
 				72944AF51D299F35008CF911 /* AppDelegate.swift in Sources */,
 				72944B071D299F35008CF911 /* ErrorView.swift in Sources */,
