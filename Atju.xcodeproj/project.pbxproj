@@ -130,9 +130,9 @@
 			isa = PBXGroup;
 			children = (
 				72944ADA1D299F35008CF911 /* Application */,
-				72944ADC1D299F35008CF911 /* Controllers */,
-				72944ADF1D299F35008CF911 /* Models */,
 				72944AE31D299F35008CF911 /* Pages */,
+				72944ADF1D299F35008CF911 /* Models */,
+				72944ADC1D299F35008CF911 /* Controllers */,
 				72944AE91D299F35008CF911 /* Utilities */,
 				72944AF01D299F35008CF911 /* Views */,
 			);

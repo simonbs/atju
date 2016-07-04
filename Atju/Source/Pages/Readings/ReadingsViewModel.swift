@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AirshipKit
 
 extension Pollen.City {
     var title: String {
@@ -28,6 +29,8 @@ extension ReadingsView {
             set {
                 var store = SettingsStore()
                 store.selectedCity = newValue
+                UAirship.push().tags = [ newValue.title ]
+                UAirship.push().updateRegistration()
             }
         }
         var selectedCellViewModels: [ReadingCollectionViewCell.ViewModel] {

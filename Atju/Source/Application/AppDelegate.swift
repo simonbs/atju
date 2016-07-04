@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func configureUrbanAirship() {
         if UAirship.sbs_isConfigAvailable {
             UAirship.takeOff()
+            UAirship.push().tags = [ SettingsStore().selectedCity.title ]
             UAirship.push().userPushNotificationsEnabled = true
         }
     }
