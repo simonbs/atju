@@ -31,7 +31,7 @@ func localize(_ key: String) -> String {
  - returns: Localized string.
  */
 func localize(_ key: String, tableName: String?, comment: String = "") -> String {
-    return NSLocalizedString(key, tableName: tableName, bundle: Bundle.main(), value: key, comment: comment)
+    return NSLocalizedString(key, tableName: tableName, bundle: Bundle.main, value: key, comment: comment)
 }
 
 /**
@@ -44,7 +44,7 @@ func localize(_ key: String, tableName: String?, comment: String = "") -> String
  */
 func localizeFormatted(_ key: String, _ args: [CVarArg]) -> String {
     if args.count == 0 {
-        return NSLocalizedString(key, bundle: Bundle.main(), value: key, comment: "")
+        return NSLocalizedString(key, bundle: Bundle.main, value: key, comment: "")
     }
     
     return withVaList(args) { (pointer: CVaListPointer) -> String in

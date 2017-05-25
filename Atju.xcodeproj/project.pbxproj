@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7227B1841ED72123007BD5F9 /* Freddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7227B1831ED72123007BD5F9 /* Freddy.framework */; };
+		7227B1871ED7232A007BD5F9 /* JSON+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7227B1861ED7232A007BD5F9 /* JSON+Date.swift */; };
 		728F879B1D15BF1000D1C888 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 728F879D1D15BF1000D1C888 /* Localizable.strings */; };
 		72944AF51D299F35008CF911 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72944ADB1D299F35008CF911 /* AppDelegate.swift */; };
 		72944AF61D299F35008CF911 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72944ADD1D299F35008CF911 /* NavigationController.swift */; };
@@ -20,7 +22,6 @@
 		72944AFE1D299F35008CF911 /* ReadingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72944AE81D299F35008CF911 /* ReadingsViewModel.swift */; };
 		72944B001D299F35008CF911 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72944AEB1D299F35008CF911 /* Date.swift */; };
 		72944B011D299F35008CF911 /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72944AEC1D299F35008CF911 /* Localize.swift */; };
-		72944B021D299F35008CF911 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72944AED1D299F35008CF911 /* Operators.swift */; };
 		72944B031D299F35008CF911 /* RelativeDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72944AEE1D299F35008CF911 /* RelativeDateFormatter.swift */; };
 		72944B041D299F35008CF911 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72944AEF1D299F35008CF911 /* UIColor.swift */; };
 		72944B051D299F35008CF911 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72944AF11D299F35008CF911 /* CollectionView.swift */; };
@@ -40,7 +41,6 @@
 		72C2B1081D2299960061164D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C2B1071D2299960061164D /* libsqlite3.tbd */; };
 		72C6E61D1D1476D700FEDF2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72C6E61C1D1476D700FEDF2C /* Assets.xcassets */; };
 		72C6E6201D1476D700FEDF2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72C6E61E1D1476D700FEDF2C /* LaunchScreen.storyboard */; };
-		72E916A61D1488E5002E3043 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E916A51D1488E5002E3043 /* SwiftyJSON.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +76,8 @@
 
 /* Begin PBXFileReference section */
 		721D11771D15C275001D5ADF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7227B1831ED72123007BD5F9 /* Freddy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Freddy.framework; path = Carthage/Build/iOS/Freddy.framework; sourceTree = SOURCE_ROOT; };
+		7227B1861ED7232A007BD5F9 /* JSON+Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSON+Date.swift"; sourceTree = "<group>"; };
 		72944ADB1D299F35008CF911 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72944ADD1D299F35008CF911 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		72944ADE1D299F35008CF911 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,7 +90,6 @@
 		72944AE81D299F35008CF911 /* ReadingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingsViewModel.swift; sourceTree = "<group>"; };
 		72944AEB1D299F35008CF911 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		72944AEC1D299F35008CF911 /* Localize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localize.swift; sourceTree = "<group>"; };
-		72944AED1D299F35008CF911 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		72944AEE1D299F35008CF911 /* RelativeDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelativeDateFormatter.swift; sourceTree = "<group>"; };
 		72944AEF1D299F35008CF911 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		72944AF11D299F35008CF911 /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
@@ -110,7 +111,6 @@
 		72C6E61C1D1476D700FEDF2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72C6E61F1D1476D700FEDF2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72C6E6211D1476D700FEDF2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		72E916A51D1488E5002E3043 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +120,7 @@
 			files = (
 				72C2B1081D2299960061164D /* libsqlite3.tbd in Frameworks */,
 				72C2B1061D2299910061164D /* libz.tbd in Frameworks */,
-				72E916A61D1488E5002E3043 /* SwiftyJSON.framework in Frameworks */,
+				7227B1841ED72123007BD5F9 /* Freddy.framework in Frameworks */,
 				72C2B0F41D2294CC0061164D /* AirshipKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,10 +194,10 @@
 			children = (
 				72944AEB1D299F35008CF911 /* Date.swift */,
 				72944AEC1D299F35008CF911 /* Localize.swift */,
-				72944AED1D299F35008CF911 /* Operators.swift */,
 				72944AEE1D299F35008CF911 /* RelativeDateFormatter.swift */,
 				72944AEF1D299F35008CF911 /* UIColor.swift */,
 				72BE62921D2A42A900AEBE0D /* UAirship.swift */,
+				7227B1861ED7232A007BD5F9 /* JSON+Date.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -291,10 +291,10 @@
 		72E916A01D147F54002E3043 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7227B1831ED72123007BD5F9 /* Freddy.framework */,
 				72C2B1071D2299960061164D /* libsqlite3.tbd */,
 				72C2B1051D2299910061164D /* libz.tbd */,
 				72C2B0E21D22949E0061164D /* AirshipKit */,
-				72E916A51D1488E5002E3043 /* SwiftyJSON.framework */,
 			);
 			name = Frameworks;
 			path = Atju;
@@ -330,7 +330,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = SimonBS;
 				TargetAttributes = {
 					72C6E6111D1476D700FEDF2C = {
@@ -403,7 +403,7 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Freddy.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -427,6 +427,7 @@
 				72944AFD1D299F35008CF911 /* ReadingsViewController.swift in Sources */,
 				72944AF81D299F35008CF911 /* AtjuClient.swift in Sources */,
 				72944AF61D299F35008CF911 /* NavigationController.swift in Sources */,
+				7227B1871ED7232A007BD5F9 /* JSON+Date.swift in Sources */,
 				72944B041D299F35008CF911 /* UIColor.swift in Sources */,
 				72A044711D2A4EA20091F935 /* CollectionReusableView.swift in Sources */,
 				72944B011D299F35008CF911 /* Localize.swift in Sources */,
@@ -437,7 +438,6 @@
 				72A0446F1D2A4CA50091F935 /* PrognoseReusableView.swift in Sources */,
 				72944AFC1D299F35008CF911 /* ReadingsView.swift in Sources */,
 				72944B001D299F35008CF911 /* Date.swift in Sources */,
-				72944B021D299F35008CF911 /* Operators.swift in Sources */,
 				72944B131D29A1DB008CF911 /* Config.swift in Sources */,
 				72944AFA1D299F35008CF911 /* SettingsStore.swift in Sources */,
 				72944AF91D299F35008CF911 /* Pollen.swift in Sources */,
@@ -490,8 +490,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -536,8 +538,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

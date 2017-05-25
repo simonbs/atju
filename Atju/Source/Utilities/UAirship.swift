@@ -11,7 +11,7 @@ import AirshipKit
 
 extension UAirship {
     static var sbs_isConfigAvailable: Bool {
-        return Bundle.main().pathForResource("AirshipConfig", ofType: "plist") != nil
+        return Bundle.main.path(forResource: "AirshipConfig", ofType: "plist") != nil
     }
 }
 

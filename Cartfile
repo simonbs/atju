@@ -1,1 +1,1 @@
-github "SwiftyJSON/SwiftyJSON" "swift3"
+github "bignerdranch/Freddy" ~> 3.0.0

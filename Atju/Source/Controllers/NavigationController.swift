@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class NavigationController: UINavigationController {
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return viewControllers.first?.preferredStatusBarStyle() ?? .default
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return viewControllers.first?.preferredStatusBarStyle ?? .default
     }
 }

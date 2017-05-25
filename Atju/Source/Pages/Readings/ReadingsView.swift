@@ -12,27 +12,27 @@ import UIKit
 extension Pollen.Sort {
     var order: Int {
         switch self {
-        case græs: return 0
-        case bynke: return 1
-        case birk: return 2
-        case el: return 3
-        case hassel: return 4
-        case elm: return 5
-        case cladosporium: return 6
-        case alternaria: return 7
+        case .græs: return 0
+        case .bynke: return 1
+        case .birk: return 2
+        case .el: return 3
+        case .hassel: return 4
+        case .elm: return 5
+        case .cladosporium: return 6
+        case .alternaria: return 7
         }
     }
     
     var color: UIColor {
         switch self {
-        case græs: return UIColor(hex: 0x295c27)
-        case bynke: return UIColor(hex: 0x227f1b)
-        case birk: return UIColor(hex: 0x3da416)
-        case el: return UIColor(hex: 0x90c716)
-        case hassel: return UIColor(hex: 0xc4c11b)
-        case elm: return UIColor(hex: 0xd89323)
-        case cladosporium: return UIColor(hex: 0xd1731d)
-        case alternaria: return UIColor(hex: 0xb4610d)
+        case .græs: return UIColor(hex: 0x295c27)
+        case .bynke: return UIColor(hex: 0x227f1b)
+        case .birk: return UIColor(hex: 0x3da416)
+        case .el: return UIColor(hex: 0x90c716)
+        case .hassel: return UIColor(hex: 0xc4c11b)
+        case .elm: return UIColor(hex: 0xd89323)
+        case .cladosporium: return UIColor(hex: 0xd1731d)
+        case .alternaria: return UIColor(hex: 0xb4610d)
         }
     }
 }
@@ -82,7 +82,7 @@ class ReadingsView: View {
     
     let refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.tintColor = .white()
+        refreshControl.tintColor = .white
         refreshControl.isEnabled = false
         return refreshControl
     }()
@@ -149,7 +149,9 @@ class ReadingsView: View {
     override func updateConstraints() {
         super.updateConstraints()
         if let topLayoutGuide = topLayoutGuide {
-            self.collectionViewTopConstraint => removeConstraint
+            if let collectionViewTopConstraint = self.collectionViewTopConstraint {
+                removeConstraint(collectionViewTopConstraint)
+            }
             let collectionViewTopConstraint = collectionView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor)
             self.collectionViewTopConstraint = collectionViewTopConstraint
             addConstraint(collectionViewTopConstraint)

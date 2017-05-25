@@ -40,10 +40,10 @@ extension ReadingsView {
         
         var prognoseViewModel: PrognoseReusableView.ViewModel?
         
-        func getPollen(update: (() -> Void), failure: ((AtjuClient.Error) -> Void)) {
+        func getPollen(update: @escaping (() -> Void), failure: @escaping ((AtjuClient.Error) -> Void)) {
             client.getPollen(success: { [weak self] pollen in
                 guard let strongSelf = self else { return }
-                DispatchQueue.global(attributes: .qosBackground).async {
+                DispatchQueue.global(qos: .background).async {
                     var cellViewModels: [Pollen.City: [ReadingCollectionViewCell.ViewModel]] = [:]
                     cellViewModels = strongSelf.insert(day: pollen.latest, in: cellViewModels, isPrevious: false)
                     if let previous = pollen.previous {
@@ -105,7 +105,7 @@ extension ReadingsView {
             }
             
             var mutableCellViewModels = cellViewModels
-            mutableCellViewModels[city] = viewModels.sorted(isOrderedBefore: { $0.sort.order < $1.sort.order })
+            mutableCellViewModels[city] = viewModels.sorted(by: { $0.sort.order < $1.sort.order })
             return mutableCellViewModels
         }
     }

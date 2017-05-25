@@ -37,7 +37,11 @@ extension ReadingCollectionViewCell {
             self.color = sort.color
             self.title = sort.rawValue
             self.value = latestReading?.value ?? "-"
-            self.date = latestReading?.date => RelativeDateFormatter.string
+            if let date = latestReading?.date {
+                self.date = RelativeDateFormatter.string(from: date)
+            } else {
+                self.date = nil
+            }
             self.order = sort.order
             
             if let previousReading = previousReading {
@@ -54,7 +58,7 @@ class ReadingCollectionViewCell: CollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 22, weight: UIFontWeightSemibold)
-        label.textColor = UIColor.white().withAlphaComponent(0.93)
+        label.textColor = UIColor.white.withAlphaComponent(0.93)
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         return label
@@ -64,7 +68,7 @@ class ReadingCollectionViewCell: CollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 42, weight: UIFontWeightBold)
-        label.textColor = UIColor.white().withAlphaComponent(0.93)
+        label.textColor = UIColor.white.withAlphaComponent(0.93)
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         return label
@@ -74,7 +78,7 @@ class ReadingCollectionViewCell: CollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
-        label.textColor = UIColor.white().withAlphaComponent(0.93)
+        label.textColor = UIColor.white.withAlphaComponent(0.93)
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         return label
@@ -84,7 +88,7 @@ class ReadingCollectionViewCell: CollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
-        label.textColor = UIColor.white().withAlphaComponent(0.85)
+        label.textColor = UIColor.white.withAlphaComponent(0.85)
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         label.numberOfLines = 0

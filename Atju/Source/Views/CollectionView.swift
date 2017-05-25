@@ -21,4 +21,8 @@ public class CollectionView<Layout: UICollectionViewLayout>: UICollectionView {
     public init() {
         super.init(frame: .zero, collectionViewLayout: Layout())
     }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }

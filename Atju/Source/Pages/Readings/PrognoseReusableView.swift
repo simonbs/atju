@@ -24,7 +24,7 @@ class PrognoseReusableView: CollectionReusableView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
-        label.textColor = UIColor.white().withAlphaComponent(0.88)
+        label.textColor = UIColor.white.withAlphaComponent(0.88)
         label.textAlignment = .center
         label.numberOfLines = 0
         label.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .horizontal)

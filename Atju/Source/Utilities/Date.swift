@@ -12,13 +12,13 @@ extension Date {
     func dateForTomorrow() -> Date? {
         var deltaComponents = DateComponents()
         deltaComponents.day = 1
-        return Calendar.current().date(byAdding: deltaComponents, to: Date(), options: [])
+        return Calendar.current.date(byAdding: deltaComponents, to: Date())
     }
     
     func dateForYesterday() -> Date? {
         var deltaComponents = DateComponents()
         deltaComponents.day = -1
-        return Calendar.current().date(byAdding: deltaComponents, to: Date(), options: [])
+        return Calendar.current.date(byAdding: deltaComponents, to: Date())
     }
     
     func isToday() -> Bool {
@@ -45,11 +45,11 @@ extension Date {
         let weekInterval: TimeInterval = 7 * 24 * 3600
         let now = Date()
         let weekIntoTheFuture = now + weekInterval
-        return self < weekIntoTheFuture && self > now
+        return timeIntervalSince1970 < weekIntoTheFuture.timeIntervalSince1970 && timeIntervalSince1970 > now.timeIntervalSince1970
     }
     
     private func dateComponents(date: Date) -> DateComponents {
-        return Calendar.current().components([ .day, .month, .year ], from: date)
+        return Calendar.current.dateComponents([ .day, .month, .year ], from: date)
     }
 }
 

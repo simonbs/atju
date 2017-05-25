@@ -15,13 +15,16 @@ struct SettingsStore {
     
     private let store: UserDefaults
 
-    init(store: UserDefaults = .standard()) {
+    init(store: UserDefaults = .standard) {
         self.store = store
     }
     
     var selectedCity: Pollen.City {
         get {
-            return Pollen.City(rawValue: store.integer(forKey: Keys.selectedCity)) ?? .copenhagen
+            if let rawCity = store.string(forKey: Keys.selectedCity), let city = Pollen.City(rawValue: rawCity) {
+                return city
+            }
+            return .copenhagen
         }
         set {
             store.set(newValue.rawValue, forKey: Keys.selectedCity)

@@ -12,24 +12,24 @@ struct RelativeDateFormatter {
     private static let weekdayFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
-        dateFormatter.locale = Locale(localeIdentifier: "da_DK")
-        dateFormatter.timeZone = TimeZone(name: "CET")
+        dateFormatter.locale = Locale(identifier: "da_DK")
+        dateFormatter.timeZone = TimeZone(abbreviation: "CET")
         return dateFormatter
     }()
     
     private static let fullDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd. LLLL"
-        dateFormatter.locale = Locale(localeIdentifier: "da_DK")
-        dateFormatter.timeZone = TimeZone(name: "CET")
+        dateFormatter.locale = Locale(identifier: "da_DK")
+        dateFormatter.timeZone = TimeZone(abbreviation: "CET")
         return dateFormatter
     }()
     
     private static let timeFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = localize("TIME_FORMAT")
-        dateFormatter.locale = Locale(localeIdentifier: "da_DK")
-        dateFormatter.timeZone = TimeZone(name: "CET")
+        dateFormatter.locale = Locale(identifier: "da_DK")
+        dateFormatter.timeZone = TimeZone(abbreviation: "CET")
         return dateFormatter
     }()
     
@@ -46,7 +46,6 @@ struct RelativeDateFormatter {
         } else {
             dateStr = fullDateFormatter.string(from: date)
         }
-        
         let timeStr = timeFormatter.string(from: date)
         return "\(dateStr) \(timeStr)"
     }

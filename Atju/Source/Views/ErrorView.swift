@@ -14,7 +14,7 @@ class ErrorView: View {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 18)
-        label.textColor = .white()
+        label.textColor = .white
         label.numberOfLines = 0
         return label
     }()
@@ -24,7 +24,7 @@ class ErrorView: View {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .boldSystemFont(ofSize: 18)
         button.setTitle(localize("RETRY"), for: [])
-        button.setTitleColor(.white(), for: [])
+        button.setTitleColor(.white, for: [])
         return button
     }()
     

@@ -13,15 +13,23 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
     private static let footerIdentifier = "PrognoseFooter"
     private let viewModel = ReadingsView.ViewModel()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override init() {
         super.init()
         let segmentedControl = UISegmentedControl(items: [
             Pollen.City.copenhagen.title,
             Pollen.City.viborg.title
         ])
-        segmentedControl.selectedSegmentIndex = viewModel.selectedCity.rawValue
+        segmentedControl.selectedSegmentIndex = viewModel.selectedCity.segmentIndex
         segmentedControl.addTarget(self, action: #selector(didSelectSegment), for: .valueChanged)
         navigationItem.titleView = segmentedControl
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -34,10 +42,6 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
         contentView.collectionView.register(PrognoseReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: ReadingsViewController.footerIdentifier)
         contentView.refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         reload()
-    }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .lightContent
     }
     
     dynamic private func refresh() {
@@ -105,8 +109,20 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
     }
     
     dynamic private func didSelectSegment(segmentedControl: UISegmentedControl) {
-        guard let selectedCity = Pollen.City(rawValue: segmentedControl.selectedSegmentIndex) else { return }
-        viewModel.selectedCity = selectedCity
+        switch segmentedControl.selectedSegmentIndex {
+        case 0: viewModel.selectedCity = .copenhagen
+        case 1: viewModel.selectedCity = .viborg
+        default: break
+        }
         contentView.collectionView.reloadData()
+    }
+}
+
+private extension Pollen.City {
+    var segmentIndex: Int {
+        switch self {
+        case .copenhagen: return 0
+        case .viborg: return 1
+        }
     }
 }

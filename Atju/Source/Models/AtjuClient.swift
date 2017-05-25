@@ -7,32 +7,24 @@
 //
 
 import Foundation
-import SwiftyJSON
+import Freddy
 
 class AtjuClient {
-    enum Error: ErrorProtocol {
-        case unableToCreateUrl
+    enum Error: Swift.Error {
         case failedLoading
         case failedParsing
         case unknown
     }
     
-    private let session: URLSession = .shared()
+    private let session: URLSession = .shared
     private let baseURL: URL
     
     init(baseURL: URL) {
         self.baseURL = baseURL
     }
     
-    func getPollen(success: ((Pollen) -> Void), failure: ((Error) -> Void)) {
-        let url: URL
-        do {
-            url = try baseURL.appendingPathComponent("/dmi/pollen")
-        } catch {
-            failure(.unableToCreateUrl)
-            return
-        }
-        
+    func getPollen(success: @escaping ((Pollen) -> Void), failure: @escaping ((Error) -> Void)) {
+        let url = baseURL.appendingPathComponent("/dmi/pollen")
         let task = session.dataTask(with: url) { data, resp, error in
             if error != nil {
                 DispatchQueue.main.async {
@@ -42,29 +34,21 @@ class AtjuClient {
             }
             
             if let data = data {
-                let json = SwiftyJSON.JSON(data: data)
-                if json.error != nil {
-                    DispatchQueue.main.async {
-                        failure(.failedParsing)
-                    }
-                    return
-                }
-                
-                if let pollen = json => Pollen.init {
+                do {
+                    let json = try JSON(data: data)
+                    let pollen = try Pollen(json: json)
                     DispatchQueue.main.async {
                         success(pollen)
                     }
-                    return
+                } catch {
+                    DispatchQueue.main.async {
+                        failure(.failedParsing)
+                    }
                 }
-                
+            } else {
                 DispatchQueue.main.async {
-                    failure(.failedParsing)
+                    failure(.unknown)
                 }
-                return
-            }
-            
-            DispatchQueue.main.async {
-                failure(.unknown)
             }
         }
         task.resume()
