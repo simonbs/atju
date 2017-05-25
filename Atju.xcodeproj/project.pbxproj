@@ -31,34 +31,13 @@
 		72944B0F1D29A0FC008CF911 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72944B0B1D29A0FC008CF911 /* AirshipConfig.plist */; };
 		72944B111D29A0FC008CF911 /* AtjuConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72944B0D1D29A0FC008CF911 /* AtjuConfig.plist */; };
 		72944B131D29A1DB008CF911 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72944B121D29A1DB008CF911 /* Config.swift */; };
+		729D63D31ED74BEB009AB98D /* AirshipKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729D63D21ED74BEB009AB98D /* AirshipKit.framework */; };
 		72A0446F1D2A4CA50091F935 /* PrognoseReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A0446E1D2A4CA50091F935 /* PrognoseReusableView.swift */; };
 		72A044711D2A4EA20091F935 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A044701D2A4EA20091F935 /* CollectionReusableView.swift */; };
 		72BE62931D2A42A900AEBE0D /* UAirship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BE62921D2A42A900AEBE0D /* UAirship.swift */; };
-		72C2B0F01D22949F0061164D /* copy_header_imports.sh in Resources */ = {isa = PBXBuildFile; fileRef = 72C2B0EB1D22949E0061164D /* copy_header_imports.sh */; };
-		72C2B0F41D2294CC0061164D /* AirshipKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C2B0F31D22949F0061164D /* AirshipKit.framework */; };
-		72C2B0F51D2294CC0061164D /* AirshipKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 72C2B0F31D22949F0061164D /* AirshipKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		72C2B1061D2299910061164D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C2B1051D2299910061164D /* libz.tbd */; };
-		72C2B1081D2299960061164D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C2B1071D2299960061164D /* libsqlite3.tbd */; };
 		72C6E61D1D1476D700FEDF2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72C6E61C1D1476D700FEDF2C /* Assets.xcassets */; };
 		72C6E6201D1476D700FEDF2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72C6E61E1D1476D700FEDF2C /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		72C2B0F21D22949F0061164D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 72C2B0E81D22949E0061164D /* AirshipKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 494DD9571B0EB677009C134E;
-			remoteInfo = AirshipKit;
-		};
-		72C2B0F61D2294CC0061164D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 72C2B0E81D22949E0061164D /* AirshipKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 494DD9561B0EB677009C134E;
-			remoteInfo = AirshipKit;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		72C2B0F81D2294CC0061164D /* Embed Frameworks */ = {
@@ -67,7 +46,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				72C2B0F51D2294CC0061164D /* AirshipKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,14 +77,11 @@
 		72944B0B1D29A0FC008CF911 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		72944B0D1D29A0FC008CF911 /* AtjuConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AtjuConfig.plist; sourceTree = "<group>"; };
 		72944B121D29A1DB008CF911 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		729D63D21ED74BEB009AB98D /* AirshipKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AirshipKit.framework; path = Carthage/Build/iOS/AirshipKit.framework; sourceTree = SOURCE_ROOT; };
 		72A0446E1D2A4CA50091F935 /* PrognoseReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrognoseReusableView.swift; sourceTree = "<group>"; };
 		72A044701D2A4EA20091F935 /* CollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
 		72BE62921D2A42A900AEBE0D /* UAirship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UAirship.swift; sourceTree = "<group>"; };
-		72C2B0E81D22949E0061164D /* AirshipKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = AirshipKit.xcodeproj; sourceTree = "<group>"; };
-		72C2B0EB1D22949E0061164D /* copy_header_imports.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = copy_header_imports.sh; sourceTree = "<group>"; };
 		72C2B0FB1D2295ED0061164D /* Atju.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Atju.entitlements; sourceTree = "<group>"; };
-		72C2B1051D2299910061164D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		72C2B1071D2299960061164D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		72C6E6121D1476D700FEDF2C /* Atju.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Atju.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72C6E61C1D1476D700FEDF2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72C6E61F1D1476D700FEDF2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -118,10 +93,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72C2B1081D2299960061164D /* libsqlite3.tbd in Frameworks */,
-				72C2B1061D2299910061164D /* libz.tbd in Frameworks */,
+				729D63D31ED74BEB009AB98D /* AirshipKit.framework in Frameworks */,
 				7227B1841ED72123007BD5F9 /* Freddy.framework in Frameworks */,
-				72C2B0F41D2294CC0061164D /* AirshipKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,24 +196,6 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
-		72C2B0E21D22949E0061164D /* AirshipKit */ = {
-			isa = PBXGroup;
-			children = (
-				72C2B0E81D22949E0061164D /* AirshipKit.xcodeproj */,
-				72C2B0EB1D22949E0061164D /* copy_header_imports.sh */,
-			);
-			name = AirshipKit;
-			path = "Frameworks/libUAirship-7/AirshipKit";
-			sourceTree = SOURCE_ROOT;
-		};
-		72C2B0E91D22949E0061164D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				72C2B0F31D22949F0061164D /* AirshipKit.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		72C6E6091D1476D700FEDF2C = {
 			isa = PBXGroup;
 			children = (
@@ -291,10 +246,8 @@
 		72E916A01D147F54002E3043 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				729D63D21ED74BEB009AB98D /* AirshipKit.framework */,
 				7227B1831ED72123007BD5F9 /* Freddy.framework */,
-				72C2B1071D2299960061164D /* libsqlite3.tbd */,
-				72C2B1051D2299910061164D /* libz.tbd */,
-				72C2B0E21D22949E0061164D /* AirshipKit */,
 			);
 			name = Frameworks;
 			path = Atju;
@@ -316,7 +269,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				72C2B0F71D2294CC0061164D /* PBXTargetDependency */,
 			);
 			name = Atju;
 			productName = Atju;
@@ -357,28 +309,12 @@
 			mainGroup = 72C6E6091D1476D700FEDF2C;
 			productRefGroup = 72C6E6131D1476D700FEDF2C /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 72C2B0E91D22949E0061164D /* Products */;
-					ProjectRef = 72C2B0E81D22949E0061164D /* AirshipKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				72C6E6111D1476D700FEDF2C /* Atju */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		72C2B0F31D22949F0061164D /* AirshipKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = AirshipKit.framework;
-			remoteRef = 72C2B0F21D22949F0061164D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		72C6E6101D1476D700FEDF2C /* Resources */ = {
@@ -390,7 +326,6 @@
 				72C6E61D1D1476D700FEDF2C /* Assets.xcassets in Resources */,
 				72944B0F1D29A0FC008CF911 /* AirshipConfig.plist in Resources */,
 				72944B111D29A0FC008CF911 /* AtjuConfig.plist in Resources */,
-				72C2B0F01D22949F0061164D /* copy_header_imports.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +339,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Freddy.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AirshipKit.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -446,14 +382,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		72C2B0F71D2294CC0061164D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = AirshipKit;
-			targetProxy = 72C2B0F61D2294CC0061164D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		728F879D1D15BF1000D1C888 /* Localizable.strings */ = {
