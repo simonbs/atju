@@ -195,12 +195,13 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
         guard kind == UICollectionElementKindSectionFooter else {
             fatalError("Was asked to return a supplementary view for unsupported element kind: \(kind)")
         }
-        
-        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ReadingsViewController.footerIdentifier, for: indexPath)
+        let view = collectionView.dequeueReusableSupplementaryView(
+            ofKind: kind, 
+            withReuseIdentifier: ReadingsViewController.footerIdentifier, 
+            for: indexPath)
         guard let prognoseView = view as? PrognoseReusableView else {
             fatalError("Footer view cannot be casted to a prognose view.")
-        }
-        
+        }        
         prognoseView.textLabel.text = viewModel.prognoseViewModel?.text
         return prognoseView
     }
