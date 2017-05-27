@@ -12,6 +12,8 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
     private static let cellIdentifier = "ReadingCell"
     private static let footerIdentifier = "PrognoseFooter"
     private let viewModel = ReadingsView.ViewModel()
+    private var isApplicationInBackground = false
+    private var isLoadingPollen = false
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -31,6 +33,16 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
             selector: #selector(pollenUpdatedFromRemoteNotification), 
             name: Notification.PollenUpdatedFromRemoteNotification,
             object: nil)
+        NotificationCenter.default.addObserver(
+            self, 
+            selector: #selector(applicationDidBecomeActive), 
+            name: .UIApplicationDidBecomeActive,
+            object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applicationDidEnterBackground),
+            name: .UIApplicationDidEnterBackground,
+            object: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -49,15 +61,30 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
         performInitialLoad()
     }
     
+    dynamic private func applicationDidEnterBackground() {
+        isApplicationInBackground = true
+    }
+    
+    dynamic private func applicationDidBecomeActive() {
+        // We want to make sure the application have been in the background
+        // as the UIApplicationDidEnterBackground notification is also sent
+        // on first launch.
+        guard isApplicationInBackground else { return }
+        isApplicationInBackground = false
+        refreshFromCache()
+    }
+    
     dynamic private func pollenUpdatedFromRemoteNotification() {
-        viewModel.loadCachedPollen { [weak self] result in
-            switch result {
-            case .value:
-                self?.contentView.collectionView.reloadData()
-            case .error:
-                break
-            }
+        refreshFromCache()
+    }
+    
+    dynamic private func didSelectSegment(segmentedControl: UISegmentedControl) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0: viewModel.selectedCity = .copenhagen
+        case 1: viewModel.selectedCity = .viborg
+        default: break
         }
+        contentView.collectionView.reloadData()
     }
     
     dynamic private func refresh() {
@@ -70,10 +97,27 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
         reload()
     }
     
+    private func refreshFromCache() {
+        guard !isLoadingPollen else { return }
+        isLoadingPollen = true
+        viewModel.loadCachedPollen { [weak self] result in
+            self?.isLoadingPollen = false
+            switch result {
+            case .value:
+                self?.contentView.collectionView.reloadData()
+            case .error:
+                break
+            }
+        }
+    }
+    
     private func performInitialLoad() {
         if viewModel.hasCachedPollen {
+            // We should have some cached data, so let's load it.
+            isLoadingPollen = true
             viewModel.loadCachedPollen { [weak self] result in
                 guard let strongSelf = self else { return }
+                strongSelf.isLoadingPollen = false
                 switch result {
                 case .value:
                     // Show the cached data and then perform a reload to get the newest data.
@@ -103,7 +147,9 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
     }
     
     private func reload() {
+        isLoadingPollen = true
         viewModel.refresh { [weak self] result in
+            self?.isLoadingPollen = false
             switch result {
             case .value:
                 self?.contentView.refreshControl.endRefreshing()
@@ -157,15 +203,6 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
         
         prognoseView.textLabel.text = viewModel.prognoseViewModel?.text
         return prognoseView
-    }
-    
-    dynamic private func didSelectSegment(segmentedControl: UISegmentedControl) {
-        switch segmentedControl.selectedSegmentIndex {
-        case 0: viewModel.selectedCity = .copenhagen
-        case 1: viewModel.selectedCity = .viborg
-        default: break
-        }
-        contentView.collectionView.reloadData()
     }
 }
 
