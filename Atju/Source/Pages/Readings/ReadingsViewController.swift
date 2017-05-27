@@ -40,7 +40,7 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         contentView.topLayoutGuide = topLayoutGuide
-        contentView.errorView.retryButton.addTarget(self, action: #selector(performInitialLoad), for: .touchUpInside)
+        contentView.errorView.retryButton.addTarget(self, action: #selector(retryLoading), for: .touchUpInside)
         contentView.collectionView.dataSource = self
         contentView.collectionView.delegate = self
         contentView.collectionView.register(ReadingCollectionViewCell.self, forCellWithReuseIdentifier: ReadingsViewController.cellIdentifier)
@@ -65,21 +65,38 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
         reload()
     }
     
-    dynamic private func performInitialLoad() {
+    dynamic private func retryLoading() {
+        contentView.showLoading()
+        reload()
+    }
+    
+    private func performInitialLoad() {
         if viewModel.hasCachedPollen {
             viewModel.loadCachedPollen { [weak self] result in
+                guard let strongSelf = self else { return }
                 switch result {
                 case .value:
-                    self?.contentView.refreshControl.endRefreshing()
-                    self?.contentView.refreshControl.isEnabled = true
-                    self?.contentView.collectionView.reloadData()
-                    self?.contentView.showContent()
+                    // Show the cached data and then perform a reload to get the newest data.
+                    strongSelf.contentView.collectionView.reloadData()
+                    strongSelf.contentView.showContent()
+                    let scrolledContentOffset = CGPoint(
+                        x: strongSelf.contentView.collectionView.contentOffset.x,
+                        y: -strongSelf.contentView.refreshControl.frame.height)
+                    // We need to call beginRefreshing after setting content offset to avoid
+                    // an iOS bug where the tint color of the UIRefreshControl would otherwise
+                    // not be correct.
+                    strongSelf.contentView.collectionView.contentOffset = scrolledContentOffset
+                    strongSelf.contentView.refreshControl.beginRefreshing()
+                    strongSelf.contentView.refreshControl.isEnabled = false
+                    strongSelf.reload()
                 case .error:
-                    break
+                    // Loading cached data failed. Perform a reload.
+                    strongSelf.contentView.showLoading()
+                    strongSelf.reload()
                 }
-                self?.reload()
             }
         } else {
+            // We have no cached data.
             contentView.showLoading()
             reload()
         }
