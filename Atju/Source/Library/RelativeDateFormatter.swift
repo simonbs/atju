@@ -35,12 +35,14 @@ struct RelativeDateFormatter {
     
     static func string(from date: Date) -> String  {
         let dateStr: String
-        if date.isToday() {
+        if date.isTomorrow() {
+            dateStr = localize("RELATIVE_DATE_TOMORROW")
+        } else if date.isToday() {
             dateStr = localize("RELATIVE_DATE_TODAY")
         } else if date.isYesterday() {
             dateStr = localize("RELATIVE_DATE_YESTERDAY")
-        } else if date.isTomorrow() {
-            dateStr = localize("RELATIVE_DATE_TOMORROW")
+        } else if date.isDayBeforeYesterday() {
+            dateStr = localize("RELATIVE_DATE_DAY_BEFORE_YESTERDAY")
         } else if date.isWithinAWeek() {
             dateStr = weekdayFormatter.string(from: date).capitalized
         } else {

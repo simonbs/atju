@@ -10,35 +10,40 @@ import Foundation
 
 extension Date {
     func dateForTomorrow() -> Date? {
-        var deltaComponents = DateComponents()
-        deltaComponents.day = 1
-        return Calendar.current.date(byAdding: deltaComponents, to: Date())
+        return date(forDeltaDay: 1)
     }
     
     func dateForYesterday() -> Date? {
+        return date(forDeltaDay: -1)
+    }
+    
+    func dateForDayBeforeYesterday() -> Date? {
+        return date(forDeltaDay: -2)
+    }
+    
+    private func date(forDeltaDay deltaDay: Int) -> Date? {
         var deltaComponents = DateComponents()
-        deltaComponents.day = -1
+        deltaComponents.day = deltaDay
         return Calendar.current.date(byAdding: deltaComponents, to: Date())
     }
     
+    func isTomorrow() -> Bool {
+        guard let tomorrow = dateForTomorrow() else { return false }
+        return isSameDay(as: tomorrow)
+    }
+    
     func isToday() -> Bool {
-        let dateComps = dateComponents(date: self)
-        let todayComps = dateComponents(date: Date())
-        return dateComps.year == todayComps.year && dateComps.month == todayComps.month && dateComps.day == todayComps.day
+        return isSameDay(as: Date())
     }
     
     func isYesterday() -> Bool {
         guard let yesterday = dateForYesterday() else { return false }
-        let dateComps = dateComponents(date: self)
-        let yesterdayComps = dateComponents(date: yesterday)
-        return dateComps.year == yesterdayComps.year && dateComps.month == yesterdayComps.month && dateComps.day == yesterdayComps.day
+        return isSameDay(as: yesterday)
     }
-
-    func isTomorrow() -> Bool {
-        guard let tomorrow = dateForTomorrow() else { return false }
-        let dateComps = dateComponents(date: self)
-        let tomorrowComps = dateComponents(date: tomorrow)
-        return dateComps.year == tomorrowComps.year && dateComps.month == tomorrowComps.month && dateComps.day == tomorrowComps.day
+    
+    func isDayBeforeYesterday() -> Bool {
+        guard let dayBeforeYesterday = dateForDayBeforeYesterday() else { return false }
+        return isSameDay(as: dayBeforeYesterday)
     }
 
     func isWithinAWeek() -> Bool {
@@ -48,16 +53,13 @@ extension Date {
         return timeIntervalSince1970 < weekIntoTheFuture.timeIntervalSince1970 && timeIntervalSince1970 > now.timeIntervalSince1970
     }
     
+    private func isSameDay(as otherDate: Date) -> Bool {
+        let dateComps = dateComponents(date: self)
+        let otherDateComps = dateComponents(date: otherDate)
+        return dateComps.year == otherDateComps.year && dateComps.month == otherDateComps.month && dateComps.day == otherDateComps.day
+    }
+    
     private func dateComponents(date: Date) -> DateComponents {
         return Calendar.current.dateComponents([ .day, .month, .year ], from: date)
     }
 }
-
-func <(lhs: Date, rhs: Date) -> Bool {
-    return lhs.timeIntervalSinceReferenceDate < rhs.timeIntervalSinceReferenceDate
-}
-
-func >(lhs: Date, rhs: Date) -> Bool {
-    return lhs.timeIntervalSinceReferenceDate > rhs.timeIntervalSinceReferenceDate
-}
-
