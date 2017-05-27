@@ -39,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UAPushNotificationDelegat
         UAirship.push().pushNotificationDelegate = self
         UAirship.push().tags = [ SettingsStore().selectedCity.title ]
         UAirship.push().userPushNotificationsEnabled = true
+        UAirship.setLogging(false)
     }
     
     fileprivate func startBackgroundTask(with uuid: UUID) {
