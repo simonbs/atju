@@ -1,0 +1,6 @@
+framework module AirshipAppExtensions {
+  umbrella header "AirshipAppExtensions.h"
+
+  export *
+  module * { export * }
+}

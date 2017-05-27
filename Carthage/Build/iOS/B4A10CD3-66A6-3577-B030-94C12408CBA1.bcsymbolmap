@@ -1,0 +1,71 @@
+BCSymbolMap Version: 2.0
+-[UAMediaAttachmentContent initWithDictionary:]
++[UAMediaAttachmentContent contentWithDictionary:]
+-[UAMediaAttachmentContent body]
+-[UAMediaAttachmentContent setBody:]
+-[UAMediaAttachmentContent title]
+-[UAMediaAttachmentContent setTitle:]
+-[UAMediaAttachmentContent subtitle]
+-[UAMediaAttachmentContent setSubtitle:]
+-[UAMediaAttachmentContent .cxx_destruct]
+-[UAMediaAttachmentPayload initWithJSONObject:]
++[UAMediaAttachmentPayload payloadWithJSONObject:]
+-[UAMediaAttachmentPayload contentWithPayload:]
+-[UAMediaAttachmentPayload optionsWithPayload:]
+-[UAMediaAttachmentPayload validateURL:]
+-[UAMediaAttachmentPayload validateCrop:]
+-[UAMediaAttachmentPayload validateTime:]
+-[UAMediaAttachmentPayload validateHidden:]
+-[UAMediaAttachmentPayload validateOptions:]
+-[UAMediaAttachmentPayload validateContent:]
+-[UAMediaAttachmentPayload validatePayload:]
+-[UAMediaAttachmentPayload urls]
+-[UAMediaAttachmentPayload setUrls:]
+-[UAMediaAttachmentPayload options]
+-[UAMediaAttachmentPayload setOptions:]
+-[UAMediaAttachmentPayload content]
+-[UAMediaAttachmentPayload setContent:]
+-[UAMediaAttachmentPayload .cxx_destruct]
+_OBJC_IVAR_$_UAMediaAttachmentContent._body
+_OBJC_IVAR_$_UAMediaAttachmentContent._title
+_OBJC_IVAR_$_UAMediaAttachmentContent._subtitle
+_OBJC_IVAR_$_UAMediaAttachmentPayload._urls
+_OBJC_IVAR_$_UAMediaAttachmentPayload._options
+_OBJC_IVAR_$_UAMediaAttachmentPayload._content
+Apple LLVM version 8.1.0 (clang-802.0.42)
+/Users/simonbs/Developer/atju/Carthage/Checkouts/ios-library/AirshipAppExtensions/AirshipAppExtensions/UAMediaAttachmentPayload.m
+/Users/simonbs/Developer/atju/Carthage/Checkouts/ios-library/AirshipAppExtensions
+/Users/simonbs/Developer/atju/Carthage/Checkouts/ios-library/AirshipAppExtensions/AirshipAppExtensions/UAMediaAttachmentPayload.h
+-[UAMediaAttachmentExtension processTempFile:originalURL:]
+-[UAMediaAttachmentExtension uniformTypeIdentifierMap]
+___54-[UAMediaAttachmentExtension uniformTypeIdentifierMap]_block_invoke
+-[UAMediaAttachmentExtension uniformTypeIdentifierForData:]
+-[UAMediaAttachmentExtension attachmentWithTemporaryFileLocation:originalURL:mimeType:options:identifier:]
+-[UAMediaAttachmentExtension downloadTaskWithPayload:]
+___54-[UAMediaAttachmentExtension downloadTaskWithPayload:]_block_invoke
+___copy_helper_block_
+___destroy_helper_block_
+-[UAMediaAttachmentExtension didReceiveNotificationRequest:withContentHandler:]
+-[UAMediaAttachmentExtension serviceExtensionTimeWillExpire]
+-[UAMediaAttachmentExtension contentHandler]
+-[UAMediaAttachmentExtension setContentHandler:]
+-[UAMediaAttachmentExtension bestAttemptContent]
+-[UAMediaAttachmentExtension setBestAttemptContent:]
+-[UAMediaAttachmentExtension modifiedContent]
+-[UAMediaAttachmentExtension setModifiedContent:]
+-[UAMediaAttachmentExtension downloadTask]
+-[UAMediaAttachmentExtension setDownloadTask:]
+-[UAMediaAttachmentExtension .cxx_destruct]
+___block_descriptor_tmp
+___block_literal_global
+___block_descriptor_tmp.175
+_OBJC_IVAR_$_UAMediaAttachmentExtension._contentHandler
+_OBJC_IVAR_$_UAMediaAttachmentExtension._bestAttemptContent
+_OBJC_IVAR_$_UAMediaAttachmentExtension._modifiedContent
+_OBJC_IVAR_$_UAMediaAttachmentExtension._downloadTask
+/Users/simonbs/Developer/atju/Carthage/Checkouts/ios-library/AirshipAppExtensions/AirshipAppExtensions/UAMediaAttachmentExtension.m
+__destroy_helper_block_
+__copy_helper_block_
+__54-[UAMediaAttachmentExtension downloadTaskWithPayload:]_block_invoke
+__54-[UAMediaAttachmentExtension uniformTypeIdentifierMap]_block_invoke
+/Users/simonbs/Library/Developer/Xcode/DerivedData/Airship-fnchlijmfmybqceadfkvajmrtdui/Build/Intermediates/AirshipAppExtensions.build/Release-iphoneos/AirshipAppExtensions.build/DerivedSources/AirshipAppExtensions_vers.c
