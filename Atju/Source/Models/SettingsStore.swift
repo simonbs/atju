@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SettingsStore {
+class SettingsStore {
     private struct Keys {
         static let selectedCity = "selectedCity"
     }

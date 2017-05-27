@@ -20,50 +20,68 @@ extension Pollen.City {
 
 extension ReadingsView {
     class ViewModel {
-        private let client = AtjuClient(baseURL: Config.shared.url)
+        enum Error: Swift.Error {
+            case cachedPollenUnavailable
+        }
+        
         private(set) var cellViewModels: [Pollen.City: [ReadingCollectionViewCell.ViewModel]] = [:]
+        private let settingsStore = SettingsStore()
+        private let pollenStore = PollenStore()
         var selectedCity: Pollen.City {
-            get {
-                return SettingsStore().selectedCity
-            }
+            get { return settingsStore.selectedCity  }
             set {
-                var store = SettingsStore()
-                store.selectedCity = newValue
+                settingsStore.selectedCity = newValue
                 UAirship.push().tags = [ newValue.title ]
                 UAirship.push().updateRegistration()
             }
         }
-        
         var cellViewModelsForSelectedCity: [ReadingCollectionViewCell.ViewModel] {
             return cellViewModels[selectedCity] ?? []
         }
-        
         var prognoseViewModel: PrognoseReusableView.ViewModel?
+        var hasCachedPollen: Bool {
+            return pollenStore.cachedPollenJSONData != nil
+        }
         
-        func getPollen(update: @escaping (() -> Void), failure: @escaping ((AtjuClient.Error) -> Void)) {
-            client.getPollen(success: { [weak self] pollen in
-                guard let strongSelf = self else { return }
-                DispatchQueue.global(qos: .background).async {
-                    var cellViewModels: [Pollen.City: [ReadingCollectionViewCell.ViewModel]] = [:]
-                    cellViewModels = strongSelf.insert(day: pollen.latest, in: cellViewModels, isPrevious: false)
-                    if let previous = pollen.previous {
-                        cellViewModels = strongSelf.insert(day: previous, in: cellViewModels, isPrevious: true)
+        func loadCachedPollen(completion: @escaping (Result<Void>) -> Void) {
+            guard let cachedPollen = pollenStore.decodeCachedPollenJSONData() else {
+                completion(.error(Error.cachedPollenUnavailable))
+                return
+            }
+            populate(from: cachedPollen) {
+                completion(.value())
+            }
+        }
+        
+        func refresh(completion: @escaping (Result<Void>) -> Void) {
+            pollenStore.refresh { [weak self] result in
+                switch result {
+                case .value(let pollen):
+                    self?.populate(from: pollen) {
+                        completion(.value())
                     }
-                    
-                    self?.cellViewModels = cellViewModels
-                    
-                    if let prognoseText = pollen.latest.prognose {
-                        self?.prognoseViewModel = PrognoseReusableView.ViewModel(text: prognoseText)
-                    } else {
-                        self?.prognoseViewModel = nil
-                    }
-                    
-                    DispatchQueue.main.async {
-                        update()
-                    }
+                case .error(let error):
+                    completion(.error(error))
                 }
-            }) { error in
-                failure(error)
+            }
+        }
+        
+        private func populate(from pollen: Pollen, completion: @escaping (Void) -> Void) {
+            DispatchQueue.global(qos: .background).async {
+                var cellViewModels: [Pollen.City: [ReadingCollectionViewCell.ViewModel]] = [:]
+                cellViewModels = self.insert(day: pollen.latest, in: cellViewModels, isPrevious: false)
+                if let previous = pollen.previous {
+                    cellViewModels = self.insert(day: previous, in: cellViewModels, isPrevious: true)
+                }
+                self.cellViewModels = cellViewModels
+                if let prognoseText = pollen.latest.prognose {
+                    self.prognoseViewModel = PrognoseReusableView.ViewModel(text: prognoseText)
+                } else {
+                    self.prognoseViewModel = nil
+                }
+                DispatchQueue.main.async {
+                    completion()
+                }
             }
         }
         

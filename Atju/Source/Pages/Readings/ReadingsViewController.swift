@@ -26,6 +26,11 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
         segmentedControl.selectedSegmentIndex = viewModel.selectedCity.segmentIndex
         segmentedControl.addTarget(self, action: #selector(didSelectSegment), for: .valueChanged)
         navigationItem.titleView = segmentedControl
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(pollenUpdatedFromRemoteNotification), 
+            name: Notification.PollenUpdatedFromRemoteNotification,
+            object: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,7 +46,18 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
         contentView.collectionView.register(ReadingCollectionViewCell.self, forCellWithReuseIdentifier: ReadingsViewController.cellIdentifier)
         contentView.collectionView.register(PrognoseReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: ReadingsViewController.footerIdentifier)
         contentView.refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        reload()
+        performInitialLoad()
+    }
+    
+    dynamic private func pollenUpdatedFromRemoteNotification() {
+        viewModel.loadCachedPollen { [weak self] result in
+            switch result {
+            case .value:
+                self?.contentView.collectionView.reloadData()
+            case .error:
+                break
+            }
+        }
     }
     
     dynamic private func refresh() {
@@ -50,20 +66,38 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
     }
     
     dynamic private func performInitialLoad() {
-        contentView.showLoading()
-        reload()
+        if viewModel.hasCachedPollen {
+            viewModel.loadCachedPollen { [weak self] result in
+                switch result {
+                case .value:
+                    self?.contentView.refreshControl.endRefreshing()
+                    self?.contentView.refreshControl.isEnabled = true
+                    self?.contentView.collectionView.reloadData()
+                    self?.contentView.showContent()
+                case .error:
+                    break
+                }
+                self?.reload()
+            }
+        } else {
+            contentView.showLoading()
+            reload()
+        }
     }
     
     private func reload() {
-        viewModel.getPollen(update: { [weak self] in
-            self?.contentView.refreshControl.endRefreshing()
-            self?.contentView.refreshControl.isEnabled = true
-            self?.contentView.collectionView.reloadData()
-            self?.contentView.showContent()
-        }) { [weak self] _ in
-            self?.contentView.refreshControl.endRefreshing()
-            self?.contentView.refreshControl.isEnabled = false
-            self?.contentView.showError()
+        viewModel.refresh { [weak self] result in
+            switch result {
+            case .value:
+                self?.contentView.refreshControl.endRefreshing()
+                self?.contentView.refreshControl.isEnabled = true
+                self?.contentView.collectionView.reloadData()
+                self?.contentView.showContent()
+            case .error:
+                self?.contentView.refreshControl.endRefreshing()
+                self?.contentView.refreshControl.isEnabled = false
+                self?.contentView.showError()
+            }
         }
     }
     

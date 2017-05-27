@@ -16,6 +16,11 @@ class AtjuClient {
         case unknown
     }
     
+    struct Response<T> {
+        let data: Data
+        let value: T
+    }
+    
     private let session: URLSession = .shared
     private let baseURL: URL
     
@@ -23,31 +28,30 @@ class AtjuClient {
         self.baseURL = baseURL
     }
     
-    func getPollen(success: @escaping ((Pollen) -> Void), failure: @escaping ((Error) -> Void)) {
+    func getPollen(completion: @escaping (Result<Response<Pollen>>) -> Void) {
         let url = baseURL.appendingPathComponent("/dmi/pollen")
         let task = session.dataTask(with: url) { data, resp, error in
             if error != nil {
                 DispatchQueue.main.async {
-                    failure(.failedLoading)
+                    completion(.error(AtjuClient.Error.failedLoading))
                 }
                 return
             }
-            
             if let data = data {
                 do {
                     let json = try JSON(data: data)
                     let pollen = try Pollen(json: json)
                     DispatchQueue.main.async {
-                        success(pollen)
+                        completion(.value(Response(data: data, value: pollen)))
                     }
                 } catch {
                     DispatchQueue.main.async {
-                        failure(.failedParsing)
+                        completion(.error(AtjuClient.Error.failedParsing))
                     }
                 }
             } else {
                 DispatchQueue.main.async {
-                    failure(.unknown)
+                    completion(.error(AtjuClient.Error.unknown))
                 }
             }
         }
