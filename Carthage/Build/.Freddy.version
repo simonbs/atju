@@ -1,0 +1,9 @@
+{
+  "commitish" : "3.0.2",
+  "iOS" : [
+    {
+      "hash" : "bded856d73544a0d5d1f745b861dfb6f77dc6744a6987da978c9523fa9c0eaee",
+      "name" : "Freddy"
+    }
+  ]
+}

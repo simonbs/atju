@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias LazyVarArgClosure = (Void) -> CVarArg
+typealias LazyVarArgClosure = () -> CVarArg
 
 func localize(_ key: String) -> String {
     return localize(key, tableName: nil)

@@ -23,14 +23,14 @@ class PrognoseReusableView: CollectionReusableView {
     let textLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
+        label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.regular)
         label.textColor = UIColor.white.withAlphaComponent(0.88)
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .horizontal)
-        label.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .vertical)
-        label.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
-        label.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
+        label.setContentCompressionResistancePriority(UILayoutPriority.required, for: .horizontal)
+        label.setContentCompressionResistancePriority(UILayoutPriority.required, for: .vertical)
+        label.setContentHuggingPriority(UILayoutPriority.required, for: .horizontal)
+        label.setContentHuggingPriority(UILayoutPriority.required, for: .vertical)
         return label
     }()
     

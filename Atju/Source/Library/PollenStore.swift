@@ -45,7 +45,7 @@ class PollenStore {
         }
     }
     
-    func refresh(completion: @escaping (Result<Pollen>) -> Void) {
+    func refresh(completion: @escaping (ValueResult<Pollen>) -> Void) {
         client.getPollen { [weak self] result in
             switch result {
             case .value(let response):

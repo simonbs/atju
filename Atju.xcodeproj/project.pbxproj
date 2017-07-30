@@ -36,7 +36,7 @@
 		72DBA9C01ED9A27A0057595A /* Pollen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBA9B91ED9A27A0057595A /* Pollen.swift */; };
 		72DBA9C11ED9A27A0057595A /* PollenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBA9BA1ED9A27A0057595A /* PollenStore.swift */; };
 		72DBA9C21ED9A27A0057595A /* RelativeDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBA9BB1ED9A27A0057595A /* RelativeDateFormatter.swift */; };
-		72DBA9C31ED9A27A0057595A /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBA9BC1ED9A27A0057595A /* Result.swift */; };
+		72DBA9C31ED9A27A0057595A /* ValueResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBA9BC1ED9A27A0057595A /* ValueResult.swift */; };
 		72DBA9C41ED9A27A0057595A /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBA9BD1ED9A27A0057595A /* SettingsStore.swift */; };
 		72E723191ED9933500358F97 /* AirshipKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E723181ED9933500358F97 /* AirshipKit.framework */; };
 		72E7231B1ED993F600358F97 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72E7231A1ED993F600358F97 /* AirshipConfig.plist */; };
@@ -88,7 +88,7 @@
 		72DBA9B91ED9A27A0057595A /* Pollen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pollen.swift; sourceTree = "<group>"; };
 		72DBA9BA1ED9A27A0057595A /* PollenStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollenStore.swift; sourceTree = "<group>"; };
 		72DBA9BB1ED9A27A0057595A /* RelativeDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelativeDateFormatter.swift; sourceTree = "<group>"; };
-		72DBA9BC1ED9A27A0057595A /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		72DBA9BC1ED9A27A0057595A /* ValueResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueResult.swift; sourceTree = "<group>"; };
 		72DBA9BD1ED9A27A0057595A /* SettingsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
 		72E723181ED9933500358F97 /* AirshipKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AirshipKit.framework; path = Carthage/Build/iOS/AirshipKit.framework; sourceTree = SOURCE_ROOT; };
 		72E7231A1ED993F600358F97 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
@@ -254,7 +254,7 @@
 				72DBA9B91ED9A27A0057595A /* Pollen.swift */,
 				72DBA9BA1ED9A27A0057595A /* PollenStore.swift */,
 				72DBA9BB1ED9A27A0057595A /* RelativeDateFormatter.swift */,
-				72DBA9BC1ED9A27A0057595A /* Result.swift */,
+				72DBA9BC1ED9A27A0057595A /* ValueResult.swift */,
 				72DBA9BD1ED9A27A0057595A /* SettingsStore.swift */,
 			);
 			path = Library;
@@ -299,14 +299,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = SimonBS;
 				TargetAttributes = {
 					72C6E6111D1476D700FEDF2C = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 8NQFWJHC63;
 						DevelopmentTeamName = "Simon Stovring";
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0900;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -378,7 +378,7 @@
 				72944AFD1D299F35008CF911 /* ReadingsViewController.swift in Sources */,
 				72DBA9C21ED9A27A0057595A /* RelativeDateFormatter.swift in Sources */,
 				72DBA9B31ED9A25F0057595A /* ErrorView.swift in Sources */,
-				72DBA9C31ED9A27A0057595A /* Result.swift in Sources */,
+				72DBA9C31ED9A27A0057595A /* ValueResult.swift in Sources */,
 				72DBA9B41ED9A25F0057595A /* View.swift in Sources */,
 				72DBA9B21ED9A25F0057595A /* CollectionViewCell.swift in Sources */,
 				72DBA9B01ED9A25F0057595A /* CollectionReusableView.swift in Sources */,
@@ -433,14 +433,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -468,6 +474,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 			};
 			name = Debug;
 		};
@@ -481,14 +488,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -508,6 +521,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -526,7 +540,8 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = dk.simonbs.Atju.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -545,7 +560,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dk.simonbs.Atju.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

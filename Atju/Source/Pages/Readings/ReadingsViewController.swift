@@ -61,11 +61,11 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
         performInitialLoad()
     }
     
-    dynamic private func applicationDidEnterBackground() {
+    @objc dynamic private func applicationDidEnterBackground() {
         isApplicationInBackground = true
     }
     
-    dynamic private func applicationDidBecomeActive() {
+    @objc dynamic private func applicationDidBecomeActive() {
         // We want to make sure the application have been in the background
         // as the UIApplicationDidEnterBackground notification is also sent
         // on first launch.
@@ -74,11 +74,11 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
         refreshFromCache()
     }
     
-    dynamic private func pollenUpdatedFromRemoteNotification() {
+    @objc dynamic private func pollenUpdatedFromRemoteNotification() {
         refreshFromCache()
     }
     
-    dynamic private func didSelectSegment(segmentedControl: UISegmentedControl) {
+    @objc dynamic private func didSelectSegment(segmentedControl: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case 0: viewModel.selectedCity = .copenhagen
         case 1: viewModel.selectedCity = .viborg
@@ -87,12 +87,12 @@ class ReadingsViewController: ViewController<ReadingsView>, UICollectionViewData
         contentView.collectionView.reloadData()
     }
     
-    dynamic private func refresh() {
+    @objc dynamic private func refresh() {
         contentView.refreshControl.beginRefreshing()
         reload()
     }
     
-    dynamic private func retryLoading() {
+    @objc dynamic private func retryLoading() {
         contentView.showLoading()
         reload()
     }

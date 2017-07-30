@@ -57,7 +57,7 @@ class ReadingCollectionViewCell: CollectionViewCell {
     let latestTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 22, weight: UIFontWeightSemibold)
+        label.font = UIFont.systemFont(ofSize: 22, weight: UIFont.Weight.semibold)
         label.textColor = UIColor.white.withAlphaComponent(0.93)
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
@@ -67,7 +67,7 @@ class ReadingCollectionViewCell: CollectionViewCell {
     let latestValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 42, weight: UIFontWeightBold)
+        label.font = UIFont.systemFont(ofSize: 42, weight: UIFont.Weight.bold)
         label.textColor = UIColor.white.withAlphaComponent(0.93)
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
@@ -77,7 +77,7 @@ class ReadingCollectionViewCell: CollectionViewCell {
     let latestDateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
+        label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.regular)
         label.textColor = UIColor.white.withAlphaComponent(0.93)
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
@@ -87,7 +87,7 @@ class ReadingCollectionViewCell: CollectionViewCell {
     let previousLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
+        label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.regular)
         label.textColor = UIColor.white.withAlphaComponent(0.85)
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center

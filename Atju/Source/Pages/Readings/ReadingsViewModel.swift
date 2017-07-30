@@ -43,22 +43,22 @@ extension ReadingsView {
             return pollenStore.cachedPollenJSONData != nil
         }
         
-        func loadCachedPollen(completion: @escaping (Result<Void>) -> Void) {
+        func loadCachedPollen(completion: @escaping (Result) -> Void) {
             guard let cachedPollen = pollenStore.decodeCachedPollenJSONData() else {
                 completion(.error(Error.cachedPollenUnavailable))
                 return
             }
             populate(from: cachedPollen) {
-                completion(.value())
+                completion(.value)
             }
         }
         
-        func refresh(completion: @escaping (Result<Void>) -> Void) {
+        func refresh(completion: @escaping (Result) -> Void) {
             pollenStore.refresh { [weak self] result in
                 switch result {
                 case .value(let pollen):
                     self?.populate(from: pollen) {
-                        completion(.value())
+                        completion(.value)
                     }
                 case .error(let error):
                     completion(.error(error))
@@ -66,7 +66,7 @@ extension ReadingsView {
             }
         }
         
-        private func populate(from pollen: Pollen, completion: @escaping (Void) -> Void) {
+        private func populate(from pollen: Pollen, completion: @escaping () -> Void) {
             DispatchQueue.global(qos: .background).async {
                 var cellViewModels: [Pollen.City: [ReadingCollectionViewCell.ViewModel]] = [:]
                 cellViewModels = self.insert(day: pollen.latest, in: cellViewModels, isPrevious: false)

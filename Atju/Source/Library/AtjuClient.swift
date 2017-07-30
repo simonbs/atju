@@ -28,7 +28,7 @@ class AtjuClient {
         self.baseURL = baseURL
     }
     
-    func getPollen(completion: @escaping (Result<Response<Pollen>>) -> Void) {
+    func getPollen(completion: @escaping (ValueResult<Response<Pollen>>) -> Void) {
         let url = baseURL.appendingPathComponent("/dmi/pollen")
         let task = session.dataTask(with: url) { data, resp, error in
             if error != nil {

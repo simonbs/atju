@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Result<T> {
+enum ValueResult<T> {
     case value(T)
     case error(Swift.Error)
     
@@ -16,6 +16,15 @@ enum Result<T> {
         self = .value(value)
     }
     
+    init(_ error: Swift.Error) {
+        self = .error(error)
+    }
+}
+
+enum Result {
+    case value
+    case error(Swift.Error)
+ 
     init(_ error: Swift.Error) {
         self = .error(error)
     }
