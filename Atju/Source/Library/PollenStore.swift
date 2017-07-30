@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Freddy
 
 class PollenStore {
     private struct Keys {
@@ -35,8 +34,12 @@ class PollenStore {
     func decodeCachedPollenJSONData() -> Pollen? {
         guard let cachedPollenJSONData = cachedPollenJSONData else { return nil }
         do {
-            let json = try JSON(data: cachedPollenJSONData)
-            return try json.decode()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            dateFormatter.timeZone = TimeZone(abbreviation: "Zulu")
+            let jsonDecoder = JSONDecoder()
+            jsonDecoder.dateDecodingStrategy = .formatted(dateFormatter)
+            return try jsonDecoder.decode(Pollen.self, from: cachedPollenJSONData)
         } catch {
             // The data could not be decoded, so we remove it.
             // We don't want to attempt decoding again it in the future.

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7227B1841ED72123007BD5F9 /* Freddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7227B1831ED72123007BD5F9 /* Freddy.framework */; };
 		728F879B1D15BF1000D1C888 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 728F879D1D15BF1000D1C888 /* Localizable.strings */; };
 		72944AF51D299F35008CF911 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72944ADB1D299F35008CF911 /* AppDelegate.swift */; };
 		72944AFB1D299F35008CF911 /* ReadingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72944AE51D299F35008CF911 /* ReadingCollectionViewCell.swift */; };
@@ -21,7 +20,6 @@
 		72DBA99A1ED9A12D0057595A /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBA9991ED9A12D0057595A /* Notification.swift */; };
 		72DBA99C1ED9A2500057595A /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBA99B1ED9A2500057595A /* NavigationController.swift */; };
 		72DBA9AB1ED9A25F0057595A /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBA99E1ED9A25F0057595A /* Date.swift */; };
-		72DBA9AC1ED9A25F0057595A /* JSON+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBA99F1ED9A25F0057595A /* JSON+Date.swift */; };
 		72DBA9AD1ED9A25F0057595A /* UAirship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBA9A01ED9A25F0057595A /* UAirship.swift */; };
 		72DBA9AE1ED9A25F0057595A /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBA9A11ED9A25F0057595A /* UIColor.swift */; };
 		72DBA9AF1ED9A25F0057595A /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBA9A31ED9A25F0057595A /* Localize.swift */; };
@@ -57,7 +55,6 @@
 
 /* Begin PBXFileReference section */
 		721D11771D15C275001D5ADF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		7227B1831ED72123007BD5F9 /* Freddy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Freddy.framework; path = Carthage/Build/iOS/Freddy.framework; sourceTree = SOURCE_ROOT; };
 		72944ADB1D299F35008CF911 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72944AE51D299F35008CF911 /* ReadingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingCollectionViewCell.swift; sourceTree = "<group>"; };
 		72944AE61D299F35008CF911 /* ReadingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingsView.swift; sourceTree = "<group>"; };
@@ -73,7 +70,6 @@
 		72DBA9991ED9A12D0057595A /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		72DBA99B1ED9A2500057595A /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		72DBA99E1ED9A25F0057595A /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		72DBA99F1ED9A25F0057595A /* JSON+Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSON+Date.swift"; sourceTree = "<group>"; };
 		72DBA9A01ED9A25F0057595A /* UAirship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UAirship.swift; sourceTree = "<group>"; };
 		72DBA9A11ED9A25F0057595A /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		72DBA9A31ED9A25F0057595A /* Localize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localize.swift; sourceTree = "<group>"; };
@@ -99,7 +95,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7227B1841ED72123007BD5F9 /* Freddy.framework in Frameworks */,
 				72E723191ED9933500358F97 /* AirshipKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,7 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				72DBA99E1ED9A25F0057595A /* Date.swift */,
-				72DBA99F1ED9A25F0057595A /* JSON+Date.swift */,
 				72DBA9A01ED9A25F0057595A /* UAirship.swift */,
 				72DBA9A11ED9A25F0057595A /* UIColor.swift */,
 			);
@@ -264,7 +258,6 @@
 			isa = PBXGroup;
 			children = (
 				72E723181ED9933500358F97 /* AirshipKit.framework */,
-				7227B1831ED72123007BD5F9 /* Freddy.framework */,
 			);
 			name = Frameworks;
 			path = Atju;
@@ -355,7 +348,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Freddy.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AirshipKit.framework",
 			);
 			name = Carthage;
@@ -373,7 +365,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				72944AF51D299F35008CF911 /* AppDelegate.swift in Sources */,
-				72DBA9AC1ED9A25F0057595A /* JSON+Date.swift in Sources */,
 				72DBA9BE1ED9A27A0057595A /* AtjuClient.swift in Sources */,
 				72944AFD1D299F35008CF911 /* ReadingsViewController.swift in Sources */,
 				72DBA9C21ED9A27A0057595A /* RelativeDateFormatter.swift in Sources */,

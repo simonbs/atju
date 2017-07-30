@@ -61,6 +61,7 @@ extension ReadingsView {
                         completion(.value)
                     }
                 case .error(let error):
+                    print(error)
                     completion(.error(error))
                 }
             }

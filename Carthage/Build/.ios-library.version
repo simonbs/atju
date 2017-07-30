@@ -2,11 +2,11 @@
   "commitish" : "8.5.1",
   "iOS" : [
     {
-      "hash" : "fcf1d066e5754594d8a1fa7a09fb17dc3865204144f183fc84d4883e8f197b7a",
+      "hash" : "f938047c3f3837a8101045ebf8ec1d676fb4bde92590543a4a7036e50a67fb05",
       "name" : "AirshipAppExtensions"
     },
     {
-      "hash" : "6599ff3a274e58b1208fa091fda38d09cdc0dc93ff119c9bd94d0541f8c4e458",
+      "hash" : "a3a74d8cca272fa17467c0199831a8a1b413a8df3962e03c42cccc984f37c4d3",
       "name" : "AirshipKit"
     }
   ]

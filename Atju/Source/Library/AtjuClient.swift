@@ -7,12 +7,11 @@
 //
 
 import Foundation
-import Freddy
 
 class AtjuClient {
     enum Error: Swift.Error {
         case failedLoading
-        case failedParsing
+        case failedParsing(Swift.Error)
         case unknown
     }
     
@@ -39,14 +38,18 @@ class AtjuClient {
             }
             if let data = data {
                 do {
-                    let json = try JSON(data: data)
-                    let pollen = try Pollen(json: json)
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                    dateFormatter.timeZone = TimeZone(abbreviation: "Zulu")
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .formatted(dateFormatter)
+                    let pollen = try decoder.decode(Pollen.self, from: data)
                     DispatchQueue.main.async {
                         completion(.value(Response(data: data, value: pollen)))
                     }
                 } catch {
                     DispatchQueue.main.async {
-                        completion(.error(AtjuClient.Error.failedParsing))
+                        completion(.error(AtjuClient.Error.failedParsing(error)))
                     }
                 }
             } else {
